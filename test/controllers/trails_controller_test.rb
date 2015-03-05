@@ -6,11 +6,11 @@ class Api::V1::TrailsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "index should have trails" do
-  #   get :index
-  #   assert_response :success
-  #   response = JSON.parse(response.body)
-  #   response["full_trail_list"]["places"].length
-  #   assert json.length > 0
-  # end
+  test "index should have trails" do
+    get :index
+    assert_response :success
+    result = JSON.parse(response.body)
+    result["full_trail_list"]["places"].length
+    assert result.length > 0
+  end
 end
