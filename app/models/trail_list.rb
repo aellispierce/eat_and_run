@@ -6,12 +6,12 @@ class TrailList
 
   def trails
     trail_names = @full_trail_list["places"].map {|place| place["name"]}
-    trail_length = @full_trail_list["places"].map {|place| place["activities"][0]}
-    trails= []
-    trail_names[0..4].each_with_index do |name, index|
-      trails << "Name: #{name}  \n Length: #{trail_length[index]}"
-    end
-    trails
+    # # trail_length = @full_trail_list["places"].map {|place| place["activities"][0]}
+    # # trails= []
+    # # trail_names[0..4].each_with_index do |name, index|
+    #   trails << "Name: #{name}  \n Length: #{trail_length[index]}"
+    # end
+    # trails
   end
 
   def as_json(options = {})
