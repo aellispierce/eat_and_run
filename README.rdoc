@@ -9,6 +9,8 @@ We will utilize two APIs:
 Nutritionix  https://www.mashape.com/msilverman/nutritionix-nutrition-database
 TrailAPI  https://www.mashape.com/trailapi/trailapi
 
+POTATO
+
 
 #MINIMUM VIABLE PRODUCT
 
