@@ -51,3 +51,30 @@ class TrailList
   end
 
 end
+
+# def trails
+#   names = @full_trail_list["places"].map {|place| place["name"]}
+#   @lengths = @full_trail_list["places"].map {|place| parse_length(place["activities"])}
+#   descriptions = @full_trail_list["places"].map {|place| parse_description(place["activities"])}
+#   activity_types = @full_trail_list["places"].map {|place| parse_activity_type(place["activities"])}
+#   thumbnails = @full_trail_list["places"].map {|place| parse_thumbnail(place["activities"])}
+#
+#   trails= []
+#   lengths[0..4].each_with_index do |length, index|
+#     if length > 5
+#       trails << "Name: #{names[index]}  \n Length: #{length} \n Description: #{descriptions[index]} \n" +
+#       "Activity Type: #{activity_types[index]}\n Picture: #{thumbnails[index]}\n"
+#     end
+#   end
+#   trails
+# end
+# def included_lengths
+#   matches= closest_match_trails(target_miles)
+#   @lengths.each_with_index do |length, index|
+#     if matches.include?(length)
+#       included_trail_indices << index
+#     end
+#     included_trail_indices.each do |index|
+#       name[index] length[index] description[index]
+#     end
+#   end
