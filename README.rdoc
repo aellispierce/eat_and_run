@@ -20,8 +20,18 @@ CITY: "Durham"
 
 -API returns
 
-Food:"Cheesecake" &&&Food name of closest matching food:first data field
-Calories:"536"  &&&Calorie #:second data field
+item_name:    Food:"Cheesecake" 
+nf_calories:  Calories:"536"
+
+city:
+state:
+name:  park name
+
+activities[activity_type_name]
+
+activities[length]
+activities[description]
+activities[thumbnail]
 
 Trails:"Little River Regional Park" &&&Trail list:third data field
        "Duke Forest"
