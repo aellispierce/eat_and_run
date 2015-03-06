@@ -25,10 +25,9 @@ module Api
       test "trails should not have excess data" do
         get :index
         result = JSON.parse(response.body)
-        refute(result.include?("brand_name"))
-        refute(result.include?("nf_serving_size_qty"))
-        refute(result.include?("parent_id"))
-        refute(result.include?("ownership"))
+        refute(result["food"]["food_info"]["hits"].first["fields"].include?("brand_name"))
+        refute(result["food"]["food_info"]["hits"].first["fields"].include?("nf_serving_size_qty"))
+        refute(result["trail"]["full_trail_list"]["places"].first.include?("parent_id"))
       end
 
     end

@@ -5,9 +5,11 @@ module Api
     class TrailsController < ApplicationController
 
       def index
-        calorie_count = Food.new(params[:food])
-        all_trails = TrailList.new(params[:city])
-        render json: {food:calorie_count, trail:all_trails}
+        food = Food.new(params[:food])
+        render json: food
+        # calorie_count = Food.new(params[:food])
+        # all_trails = TrailList.new(params[:city])
+        # render json: foods["food_info"]["hits"]
       end
     end
   end
