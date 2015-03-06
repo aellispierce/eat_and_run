@@ -10,7 +10,7 @@ class Api::V1::TrailsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     result = JSON.parse(response.body)
-    result["full_trail_list"]["places"].length
+    result["trail"]["full_trail_list"]["places"].length
     assert result.length > 0
   end
 end
