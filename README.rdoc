@@ -20,7 +20,7 @@ CITY: "Durham"
 
 -API returns
 
-item_name:    Food:"Cheesecake" 
+item_name:    Food:"Cheesecake"
 nf_calories:  Calories:"536"
 
 city:
