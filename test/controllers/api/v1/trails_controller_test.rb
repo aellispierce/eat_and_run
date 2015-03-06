@@ -28,12 +28,11 @@ module Api
         refute(result["food"].include?("food_info"))
       end
 
-      test "trails should not have excess data" do
-        get :index
-        result = JSON.parse(response.body)
-        refute(result["trail"]["full_trail_list"].include?("places"))
-
-      end
+      # test "trails should not have excess data" do
+      #   get :index
+      #   result = JSON.parse(response.body)
+      #   refute(result["trail"]["full_trail_list"].include?("places"))
+      # end
 
     end
   end
