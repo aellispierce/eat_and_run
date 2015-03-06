@@ -2,7 +2,7 @@ module Api
 
   module V1
 
-    TrailsController < ApplicationController
+    class TrailsController < ApplicationController
 
       def index
         calorie_count = Food.new(params[:food])
