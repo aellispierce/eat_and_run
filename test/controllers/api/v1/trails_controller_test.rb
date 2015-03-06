@@ -18,16 +18,15 @@ module Api
       test "index should have foods" do
         get :index
         result = JSON.parse(response.body)
-        num_results= result["food"]["food_info"]["hits"].length
+        num_results= result["food"]["items"].length
         assert num_results > 0
       end
 
-      test "trails should not have excess data" do
+      test "food should not have excess data" do
         get :index
         result = JSON.parse(response.body)
-        refute(result["food"]["food_info"]["hits"].first["fields"].include?("brand_name"))
-        refute(result["food"]["food_info"]["hits"].first["fields"].include?("nf_serving_size_qty"))
-        refute(result["trail"]["full_trail_list"]["places"].first.include?("parent_id"))
+        refute(result["food"].include?("food_info"))
+        # refute(result["trail"]["full_trail_list"]["places"].first.include?("parent_id"))
       end
 
     end
