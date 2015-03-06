@@ -1,4 +1,6 @@
 require 'test_helper'
+require 'trail.rb'
+require 'food.rb'
 
 class Api::V1::TrailsControllerTest < ActionController::TestCase
   test "should get index" do
