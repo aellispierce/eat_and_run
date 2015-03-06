@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='10.046671' skipped='0' failures='0' errors='0' name="Api::V1::TrailsControllerTest" assertions='5' tests='3'>
+  <testcase time='3.415248' file="test/controllers/api/v1/trails_controller_test.rb" name="test_index_should_have_foods" assertions='2'>
+  </testcase>
+  <testcase time='3.449103' file="test/controllers/api/v1/trails_controller_test.rb" name="test_index_should_have_trails" assertions='2'>
+  </testcase>
+  <testcase time='3.182320' file="test/controllers/api/v1/trails_controller_test.rb" name="test_should_get_index" assertions='1'>
+  </testcase>
+</testsuite>
