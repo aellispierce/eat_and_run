@@ -9,7 +9,6 @@ module Api
         all_trails = Trail.new(params[:city])
         render json: {food:calorie_count, trail:all_trails}
       end
-
     end
   end
 end
