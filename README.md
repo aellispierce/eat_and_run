@@ -10,3 +10,18 @@ The vision for an app's UI would be: a glossy picture of the cupcake you want to
 We will utilize two APIs:
 Nutritionix  https://www.mashape.com/msilverman/nutritionix-nutrition-database
 TrailAPI  https://www.mashape.com/trailapi/trailapi
+
+#MINIMUM VIABLE PRODUCT
+
+-User enters
+FOOD: "cheesecake"
+CITY: "Durham"
+
+-API returns
+
+Food:"Cheesecake"
+Calories:"536"  
+
+Trails:"Little River Regional Park" 
+       "Duke Forest"
+       "Eno River State Park"
