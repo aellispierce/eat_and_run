@@ -32,6 +32,7 @@ class TrailList
     @food.average_calories/calories_per_mile
   end
 
+
   def closest_match_trails(target_miles)
     low_end = target_miles - 3
     high_end = target_miles + 3
@@ -44,6 +45,7 @@ class TrailList
     end
   end
 
+
   def included_trails
     matches = closest_match_trails(target_miles)
     included_trail_indices = []
@@ -54,15 +56,17 @@ class TrailList
       end
     end
     included_trail_indices.each do |trail_index|
-      trails << "Name: #{@names[trail_index]}  \n Length: #{@lengths[trail_index]} \n Description: #{@descriptions[trail_index]} \n" +
-      "Activity Type: #{@activity_types[trail_index]}\n Picture: #{@thumbnails[trail_index]}\n"
+      trails << {name: "#{@names[trail_index]}", length: "#{@lengths[trail_index]}", description: "#{@descriptions[trail_index]}",
+      activity_type: "#{@activity_types[trail_index]}", picture: "#{@thumbnails[trail_index]}"}
     end
     trails
   end
 
 
   def as_json(options = {})
+
     {trails: included_trails, miles_needed: target_miles, matching_trails: closest_match_trails(target_miles)}
+
   end
 
 end

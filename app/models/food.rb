@@ -1,5 +1,5 @@
 class Food
-  attr_reader :food_info
+  attr_reader :food_info, :average_calories
   def initialize(food)
 
     @food = food
@@ -14,7 +14,7 @@ class Food
     @calories = @food_info["hits"].map {|hit| hit["fields"]["nf_calories"]}
 
     item_names[0..4].each_with_index do |name, index|
-      item << "Name: #{name}  \n Brand: #{brand_names[index]} \n Calories: #{@calories[index]}"
+      item << {name: "#{name}", brand: "#{brand_names[index]}", calories: "#{@calories[index]}"}
     end
     item
   end
