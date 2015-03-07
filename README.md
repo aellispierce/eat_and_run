@@ -4,7 +4,7 @@ Find it here: https://eatandrun.herokuapp.com/api/v1/trails
 
 Eat and Run is an API that takes two basic parameters: a food and your location.  It will give you options for nearby trails where you can go work off that food.
 
-The app returns the top five item/brand/calorie food matches, and averages those calories.
+Eat and Run returns the top five item/brand/calorie food matches, and averages those calories.
 
 With this average, a target mileage is calculated (based on the rough estimate of 90 calories burned per mile walked).
 
@@ -17,7 +17,9 @@ Trail information includes the trail length, description, various activities, an
 The vision for an app's UI would be: enter the food you just ate, and see a snapshot of a leafy local trail.  Now working off your food isn't a chore...it is as enticing as your meal was.
 
 We are utilizing two APIs:
+
 Nutritionix  https://www.mashape.com/msilverman/nutritionix-nutrition-database
+
 TrailAPI  https://www.mashape.com/trailapi/trailapi
 
 
