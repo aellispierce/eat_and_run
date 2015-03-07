@@ -19,7 +19,7 @@ TrailAPI  https://www.mashape.com/trailapi/trailapi
 In our calculation of calories eaten vs. miles to walk, we are using the rough estimate of 90 calories burned per mile walked.
 
 
-SEARCH PARAMETERS
+#SEARCH PARAMETERS
 
 Use the following format:https://eatandrun.herokuapp.com/api/v1/trails?city={CITY}&food={FOOD}
 
@@ -27,7 +27,7 @@ Enter the city (no state) with the first letter capitalized.  Enter a food item 
 
 If no food is specified, a random food will be chosen.  If no city is selected, the first 100 trails will be displayed.
 
-TYPICAL DATA RECORD
+#TYPICAL DATA RECORD
 
 For a search like https://eatandrun.herokuapp.com/api/v1/trails?city=Durham&food=cake
 
