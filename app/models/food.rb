@@ -21,6 +21,7 @@ class Food
 
   def average_calories
     num_calories = @calories.count
+    return 0 if num_calories == 0
     (@calories.reduce(:+))/num_calories
   end
 

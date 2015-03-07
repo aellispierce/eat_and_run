@@ -1,58 +1,9 @@
-#EAT AND RUN
-
-Eat and Run is an API that takes two basic parameters: the food you want to eat and your location
-The app will then return relevant options for nearby trails where you can burn off the calories.
-
-The vision for an app's UI would be: a glossy picture of the cupcake you want to eat, next to a snapshot of a leafy local trail.  Now working off your food isn't a chore...it is as enticing as your meal.
-
-We will utilize two APIs:
-Nutritionix  https://www.mashape.com/msilverman/nutritionix-nutrition-database
-TrailAPI  https://www.mashape.com/trailapi/trailapi
-
-POTATO
-
-
-#MINIMUM VIABLE PRODUCT
-
--User enters
-FOOD: "cheesecake"
-CITY: "Durham"
-
--API returns
-
-item_name:    Food:"Cheesecake"
-nf_calories:  Calories:"536"
-
-city:
-state:
-name:  park name
-
-activities[activity_type_name]
-
-activities[length]
-activities[description]
-activities[thumbnail]
-
-Trails:"Little River Regional Park" &&&Trail list:third data field
-       "Duke Forest"
-       "Eno River State Park"
-
-
-#NEXT LEVEL
-
-Same parameters, but gives you basic information about your exercise plan
-
-Walk [number] miles/Spend [number] hours on the trail ***just doing some math with calories and walking
-
-Lists length of each trail &&&Length:fourth data field
-Lists activities associated with each trail &&&Activities:fifth data fields
-Lists current temp/precipitation &&&Temp and Precip:sixth and seventh data fields
-
-#WISHLIST FOR AFTER THAT
+#EAT AND RUN...IDEAS FOR LATER
 
 -User can choose activity: walking, running, or biking
--User can enter personal information for better calorie calculation
--User can enter zip code, which would get translated into approx. lat/long, which would allow them to specify a certain radius for how far they were willing to travel
--Trail API would return associated pictures; another API would provide food images
+-User can enter personal height/weight information for better calorie calculation
+-User can enter zip code, which would get translated into approx. lat/long, which would allow them to specify a certain radius for how far they were willing to travel.  A lat/long to address conversion or link to Google Maps would help them locate the trails.
+-Connect with an API to provide food images
+-Connect with a weather API to give current temperature/precipitation for the trail
 -Connect with restaurant API to give restaurant recommendations
--Could show maps
+-Could include maps
