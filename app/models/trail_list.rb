@@ -5,14 +5,19 @@ class TrailList
   end
 
   def parse(activities, attribute)
-    attribute = activities.map do |a|
+    result = activities.map do |a|
       if a[attribute].class == String
        a[attribute].capitalize
      else
        a[attribute]
      end
     end
-    attribute[0]
+    result= result.reject{ |r| r == nil}
+    if attribute == "length"
+      result[0]
+    else
+      result.to_sentence
+    end
   end
 
   def trails
