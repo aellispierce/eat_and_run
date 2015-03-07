@@ -51,7 +51,7 @@ class TrailList
     @lengths.each_with_index do |length, index|
       if matches.include?(length)
         included_trail_indices << index
-      end  
+      end
     end
     included_trail_indices.each do |trail_index|
       trails << "Name: #{@names[trail_index]}  \n Length: #{@lengths[trail_index]} \n Description: #{@descriptions[trail_index]} \n" +
@@ -62,7 +62,7 @@ class TrailList
 
 
   def as_json(options = {})
-    {trails: included_trails, target: target_miles, matching_trails: closest_match_trails(target_miles)}
+    {trails: included_trails, target: target_miles, matching_trails: closest_match_trails(target_miles), lengths: @lengths}
   end
 
 end
