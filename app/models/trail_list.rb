@@ -14,10 +14,10 @@ class TrailList
   def parse(activities, attribute)
     result = activities.map do |a|
       if a[attribute].class == String
-       a[attribute].capitalize
-     else
-       a[attribute]
-     end
+        a[attribute].capitalize
+      else
+        a[attribute]
+      end
     end
     result= result.reject{ |r| r == nil}
     if attribute == "length"
@@ -32,6 +32,7 @@ class TrailList
     @food.average_calories/calories_per_mile
   end
 
+
   def closest_match_trails(target_miles)
     low_end = target_miles - 3
     high_end = target_miles + 3
@@ -43,6 +44,7 @@ class TrailList
       @lengths
     end
   end
+
 
   def included_trails
     matches = closest_match_trails(target_miles)
@@ -62,11 +64,12 @@ class TrailList
 
 
   def as_json(options = {})
-    {trails: included_trails, target: target_miles, matching_trails: closest_match_trails(target_miles), lengths: @lengths}
+
+    {trails: included_trails, miles_needed: target_miles, matching_trails: closest_match_trails(target_miles)}
+
   end
 
 end
-
 # def trails
 #   names = @full_trail_list["places"].map {|place| place["name"]}
 #   @lengths = @full_trail_list["places"].map {|place| parse_length(place["activities"])}
