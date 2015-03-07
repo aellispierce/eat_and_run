@@ -1,5 +1,5 @@
 class Food
-  attr_reader :food_info
+  attr_reader :food_info, :average_calories
   def initialize(food)
 
     @food = food

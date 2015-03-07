@@ -1,6 +1,7 @@
 class TrailList
   attr_reader :full_trail_list
-  def initialize(city)
+  def initialize(city, food)
+    @food= food
     @full_trail_list= HTTParty.get("https://outdoor-data-api.herokuapp.com/api.json?api_key=#{ENV['TRAIL_TOKEN']}&q[city_eq]=#{city}")
   end
 
@@ -35,8 +36,24 @@ class TrailList
     trails
   end
 
+  def closest_match_trails(target_miles)
+    low_end = target_miles - 3
+    high_end = target_miles + 3
+    results = trail_lengths_array.select {|length|  length > low_end && length < high_end}
+    if results.length >= 1
+      results
+    else
+      @lengths
+    end
+  end
+
+  def target_miles
+    calories_per_mile = 90
+    @food.average_calories/calories_per_mile
+  end
+
   def as_json(options = {})
-    {trails: trails}
+    {trails: trails, target: target_miles}
   end
 
 end
