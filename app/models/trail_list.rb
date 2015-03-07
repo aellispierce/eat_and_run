@@ -6,7 +6,11 @@ class TrailList
 
   def parse(activities, attribute)
     attribute = activities.map do |a|
+      if a[attribute].class == String
+       a[attribute].capitalize
+     else
        a[attribute]
+     end
     end
     attribute[0]
   end
