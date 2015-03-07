@@ -56,8 +56,8 @@ class TrailList
       end
     end
     included_trail_indices.each do |trail_index|
-      trails << "Name: #{@names[trail_index]}  \n Length: #{@lengths[trail_index]} \n Description: #{@descriptions[trail_index]} \n" +
-      "Activity Type: #{@activity_types[trail_index]}\n Picture: #{@thumbnails[trail_index]}\n"
+      trails << {name: "#{@names[trail_index]}", length: "#{@lengths[trail_index]}", description: "#{@descriptions[trail_index]}",
+      activity_type: "#{@activity_types[trail_index]}", picture: "#{@thumbnails[trail_index]}"}
     end
     trails
   end
