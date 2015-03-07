@@ -6,7 +6,7 @@ module Api
 
       def index
         food = Food.new(params[:food])
-        all_trails = TrailList.new(params[:city])
+        all_trails = TrailList.new(params[:city], food)
 
         render json: {food: food, trail: all_trails}
 
