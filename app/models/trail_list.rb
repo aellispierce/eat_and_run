@@ -3,7 +3,13 @@ class TrailList
   def initialize(city, food)
     @food= food
     @full_trail_list= HTTParty.get("https://outdoor-data-api.herokuapp.com/api.json?api_key=#{ENV['TRAIL_TOKEN']}&q[city_eq]=#{city}")
+    @names = @full_trail_list["places"].map {|place| place["name"]}
+    @lengths = @full_trail_list["places"].map {|place| parse(place["activities"], "length")}
+    @descriptions = @full_trail_list["places"].map {|place| parse(place["activities"], "description")}
+    @activity_types = @full_trail_list["places"].map {|place| parse(place["activities"], "activity_type_name")}
+    @thumbnails = @full_trail_list["places"].map {|place| parse(place["activities"], "thumbnail")}
   end
+
 
   def parse(activities, attribute)
     result = activities.map do |a|
@@ -21,39 +27,42 @@ class TrailList
     end
   end
 
-  def trails
-    names = @full_trail_list["places"].map {|place| place["name"]}
-    lengths = @full_trail_list["places"].map {|place| parse(place["activities"], "length")}
-    descriptions = @full_trail_list["places"].map {|place| parse(place["activities"], "description")}
-    activity_types = @full_trail_list["places"].map {|place| parse(place["activities"], "activity_type_name")}
-    thumbnails = @full_trail_list["places"].map {|place| parse(place["activities"], "thumbnail")}
-
-    trails= []
-    names[0..4].each_with_index do |name, index|
-      trails << "Name: #{name}  \n Length: #{lengths[index]} \n Description: #{descriptions[index]} \n" +
-      "Activity Type: #{activity_types[index]}\n Picture: #{thumbnails[index]}\n"
-    end
-    trails
+  def target_miles
+    calories_per_mile = 90
+    @food.average_calories/calories_per_mile
   end
 
   def closest_match_trails(target_miles)
     low_end = target_miles - 3
     high_end = target_miles + 3
-    results = trail_lengths_array.select {|length|  length > low_end && length < high_end}
-    if results.length >= 1
+    # @lengths
+    results = @lengths[0..4].select {|length|  length >= low_end && length <= high_end}
+    if results.count >= 1
       results
     else
       @lengths
     end
   end
 
-  def target_miles
-    calories_per_mile = 90
-    @food.average_calories/calories_per_mile
+  def included_trails
+    matches = closest_match_trails(target_miles)
+    included_trail_indices = []
+    trails = []
+    @lengths.each_with_index do |length, index|
+      if matches.include?(length)
+        included_trail_indices << index
+      end  
+    end
+    included_trail_indices.each do |trail_index|
+      trails << "Name: #{@names[trail_index]}  \n Length: #{@lengths[trail_index]} \n Description: #{@descriptions[trail_index]} \n" +
+      "Activity Type: #{@activity_types[trail_index]}\n Picture: #{@thumbnails[trail_index]}\n"
+    end
+    trails
   end
 
+
   def as_json(options = {})
-    {trails: trails, target: target_miles}
+    {trails: included_trails, target: target_miles, matching_trails: closest_match_trails(target_miles)}
   end
 
 end
