@@ -1,7 +1,5 @@
 require 'test_helper'
-require 'trail_list.rb'
-require 'food.rb'
-#requires are for circle ci
+
 
 class TrailListTest < ActionController::TestCase
   def setup
@@ -17,7 +15,12 @@ class TrailListTest < ActionController::TestCase
     @trail_list.instance_variable_set(:@thumbnails, ["url1", "url2", "url3", "url4", "url5"])
   end
 
-  #this setup is so hairy...but when you do have a lot of little methods that call others, what else do you do?
+  test "average calories" do
+    assert_equal 313, @food_item.average_calories
+    end
+  test "target miles" do
+    assert_equal 3, @trail_list.target_miles
+  end
 
   test "closest_match_trails" do
     result = @trail_list.closest_match_trails(@target_miles)
@@ -26,6 +29,11 @@ class TrailListTest < ActionController::TestCase
 
   test "included_trails" do
     result = @trail_list.included_trails
-    assert_equal [{:name=>"Falls Lake", :length=>"0", :description=>"cold", :activity_type=>"hiking", :picture=>"url1"}, {:name=>"Ohmer Creek", :length=>"6", :description=>"crowded", :activity_type=>"camping", :picture=>"url4"}, {:name=>"Blue River Campground", :length=>"3", :description=>"fun", :activity_type=>"canoeing", :picture=>"url5"}], result
+    assert_equal [{:name=>"Falls Lake", :length=>"0", :description=>"cold",
+      :activity_type=>"hiking", :picture=>"url1"},
+                  {:name=>"Ohmer Creek", :length=>"6", :description=>"crowded",
+                    :activity_type=>"camping",  :picture=>"url4"},
+                  {:name=>"Blue River Campground", :length=>"3", :description=>"fun",
+                    :activity_type=>"canoeing", :picture=>"url5"}], result
   end
 end
