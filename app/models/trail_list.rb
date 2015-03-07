@@ -36,8 +36,7 @@ class TrailList
   def closest_match_trails(target_miles)
     low_end = target_miles - 3
     high_end = target_miles + 3
-    # @lengths
-    results = @lengths[0..4].select {|length|  length >= low_end && length <= high_end}
+    results = @lengths[0..-1].select {|length| length != nil && length >= low_end && length <= high_end}
     if results.count >= 1
       results
     else
@@ -65,7 +64,7 @@ class TrailList
 
   def as_json(options = {})
 
-    {trails: included_trails, miles_needed: target_miles, matching_trails: closest_match_trails(target_miles)}
+    {miles_needed: target_miles, trails: included_trails}
 
   end
 
