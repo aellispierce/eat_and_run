@@ -9,6 +9,7 @@ class Food
 
   def items
     item = []
+    return item if @food_info["hits"].blank?
     item_names = @food_info["hits"].map {|hit| hit["fields"]["item_name"]}
     brand_names = @food_info["hits"].map {|hit| hit["fields"]["brand_name"]}
     @calories = @food_info["hits"].map {|hit| hit["fields"]["nf_calories"]}
@@ -20,6 +21,7 @@ class Food
   end
 
   def average_calories
+    return 0 if @calories == nil
     num_calories = @calories.count
     return 0 if num_calories == 0
     (@calories.reduce(:+))/num_calories
