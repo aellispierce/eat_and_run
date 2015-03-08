@@ -1,0 +1,15 @@
+<h1>Eat and Run</h1>
+<p>Eat and Run is an API that takes two basic parameters: a food and your location.
+It will give you options for nearby trails where you can go work off that food.</p>
+
+<p><strong> Search Parameters: </strong>Use the following format: https://eatandrun.herokuapp.com/api/v1/trails?city={CITY}&food={FOOD}</p>
+
+<p>Enter the city (no state) with the first letter capitalized. Enter a food item (no spaces). Do not include the brackets.</p>
+
+<p>Eat and Run returns the top five item/brand/calorie food matches, and averages those
+  calories.With this average, a target mileage is calculated (based on the rough estimate of
+  90 calories burned per mile walked). Relevant options for nearby trails are displayed below. Trails are selected based
+  on the closest match of trail's length and the target mileage. If there are no local trails within 3 miles of the target mileage, all local trails
+  will be displayed.</p>
+
+<p>If no food is specified, a random food will be chosen. If no city is selected, the first 100 trails will be displayed.</p>
