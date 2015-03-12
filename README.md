@@ -1,4 +1,4 @@
-#EAT AND RUN
+#Eat and Run
 
 Find it here: https://eatandrun.herokuapp.com/api/v1/trails
 
@@ -23,7 +23,7 @@ Nutritionix  https://www.mashape.com/msilverman/nutritionix-nutrition-database
 TrailAPI  https://www.mashape.com/trailapi/trailapi
 
 
-#SEARCH PARAMETERS
+#Search Parameters
 
 Use the following format: https://eatandrun.herokuapp.com/api/v1/trails?city={CITY}&food={FOOD}
 
@@ -32,7 +32,7 @@ Enter the city (no state) with the first letter capitalized.  Enter a food item 
 If no food is specified, a random food will be chosen.  If no city is selected, the first 100 trails will be displayed.
 
 
-#TYPICAL DATA RECORD
+#Typical Data Record
 
 For a search like https://eatandrun.herokuapp.com/api/v1/trails?city=Durham&food=cake
 
